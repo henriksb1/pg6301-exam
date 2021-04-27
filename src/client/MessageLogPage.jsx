@@ -11,9 +11,8 @@ export function MessageLogPage({messageApi}) {
 
     const { data: userData, error: errorData, loading: loadingData } = useLoading(() => fetchJson("/api/profile"));
 
-
     if (error || errorData) {
-        return <ErrorView error={error} reload={reload} />;
+        return <ErrorView error={(error ? error : errorData)} reload={reload} />;
     }
 
     if (loading || !user || loadingData) {
@@ -28,8 +27,8 @@ export function MessageLogPage({messageApi}) {
         <div>
             <h1>Message log</h1>
             <h2>Sent messages</h2>
-            {findSentMessages.map(({ username, message }) => (
-                <div>
+            {findSentMessages.map(({ id, username, message }) => (
+                <div key={id}>
                     <p>{"Sender: " + username}</p>
                     <p>{"Message: " + message}</p>
                     <br/>
