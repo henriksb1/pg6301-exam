@@ -24,8 +24,9 @@ export function MessageLogPage({ messageApi }) {
   }
 
   const { username } = userData;
+
+  // SHARED; CHECK IN README
   const findSentMessages = user.filter((e) => e.username === username);
-  console.log(findSentMessages);
   const findReceivedMessages = user.filter((e) => e.receiver === username);
 
   return (

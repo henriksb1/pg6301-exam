@@ -51,6 +51,7 @@ authApi.get("/api/profile", (req, res) => {
 authApi.post("/api/login", (req, res) => {
   const { username, password } = req.body;
 
+  // SHARED; CHECK IN README
   let foundUser = false;
   let user;
   users.forEach((e) => {

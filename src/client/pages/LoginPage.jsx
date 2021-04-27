@@ -23,7 +23,7 @@ export function LoginPage() {
         {submitting && <div>Please wait</div>}
         {error && <div>Error: {error.toString()}</div>}
         <InputField
-          label={"Username"}
+          label={"Email"}
           value={username}
           onValueChange={setUsername}
         />

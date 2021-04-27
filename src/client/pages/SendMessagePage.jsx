@@ -41,7 +41,7 @@ export function SendMessagePage({ userApi, messageApi }) {
         onValueChange={setMessage}
       />
       <label>
-        Receiver:{" "}
+        Receiver:
         <select onChange={(e) => setReceiver(e.target.value)}>
           <option />
           {user.map(({ id, email }) => (
@@ -50,7 +50,7 @@ export function SendMessagePage({ userApi, messageApi }) {
         </select>
       </label>
       <br />
-      <button>Submit</button>
+      <button>Send</button>
     </form>
   );
 }

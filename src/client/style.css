@@ -38,3 +38,23 @@ main {
 h1 {
     text-align: center;
 }
+
+form {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+form input {
+    width: 100%;
+    margin: 10px 0 10px 0;
+}
+
+form select {
+    width: 100%;
+}
+
+button {
+    width: 100px;
+}
+

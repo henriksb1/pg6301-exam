@@ -2,7 +2,6 @@ import * as React from "react";
 import { ErrorView } from "../components/ErrorView";
 import { LoadingView } from "../components/LoadingView";
 import { useLoading } from "../lib/useLoading";
-import { Link } from "react-router-dom";
 
 export function ListUserPage({ userApi }) {
   const { data: user, error, loading, reload } = useLoading(
@@ -19,13 +18,9 @@ export function ListUserPage({ userApi }) {
 
   return (
     <div>
-      <h1>Edit users</h1>
+      <h1>All users</h1>
       {user.map(({ id, firstName, lastName, email }) => (
-        <li key={id}>
-          <Link to={`/user/${id}/edit`}>
-            {firstName + " " + lastName + ` (${email})`}
-          </Link>
-        </li>
+        <li key={id}>{firstName + " " + lastName + ` (${email})`}</li>
       ))}
     </div>
   );
