@@ -3,10 +3,10 @@ import { ErrorView } from "../components/ErrorView";
 import { LoadingView } from "../components/LoadingView";
 import { useLoading } from "../lib/useLoading";
 import { fetchJson } from "../lib/http";
-import {RegisterUserPage} from "./RegisterUserPage";
-import {ListUserPage} from "./ListUserPage";
+import { RegisterUserPage } from "./RegisterUserPage";
+import { ListUserPage } from "./ListUserPage";
 
-export function ProfilePage({userApi}) {
+export function ProfilePage({ userApi }) {
   const { loading, error, data } = useLoading(() => fetchJson("/api/profile"));
 
   if (error) {
@@ -22,7 +22,7 @@ export function ProfilePage({userApi}) {
     <div>
       <h1>Your profile:</h1>
       <div>Email: {username}</div>
-      <RegisterUserPage userApi={userApi}/>
+      <RegisterUserPage userApi={userApi} />
       <ListUserPage userApi={userApi} />
     </div>
   );
