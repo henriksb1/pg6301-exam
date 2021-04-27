@@ -5,6 +5,7 @@ import { LoginPage } from "./LoginPage";
 import { FrontPage } from "./FrontPage";
 import React from "react";
 import {fetchJson, postJson} from "./http";
+import {Navbar} from "./Navbar";
 
 export function Application() {
     const userApi = {
@@ -19,11 +20,17 @@ export function Application() {
   return (
     <BrowserRouter>
       <header>
-        <Link to="/">Front page</Link>
+          <Navbar />
       </header>
       <Switch>
         <Route path="/profile">
           <ProfilePage userApi={userApi}/>
+        </Route>
+          <Route path="/message">
+              <h1>Message</h1>
+        </Route>
+          <Route path="/log">
+              <h1>Log</h1>
         </Route>
         <Route path="/login">
           <LoginPage />

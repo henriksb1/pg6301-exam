@@ -21,7 +21,7 @@ export function ProfilePage({userApi}) {
   return (
     <div>
       <h1>Your profile:</h1>
-      <div>Username: {username}</div>
+      <div>Email: {username}</div>
       <RegisterUserPage userApi={userApi}/>
       <ListUserPage userApi={userApi} />
     </div>

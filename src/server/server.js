@@ -65,13 +65,16 @@ app.get("/api/profile", (req, res) => {
 app.post("/api/login", (req, res) => {
   const { username, password } = req.body;
 
-  if (username === "admin" && password === "admin") {
-    req.session.username = username;
-    res.end();
-  } else {
-    res.sendStatus(401);
-  }
-  if (username === "admin" && password === "admin") {
+  let foundUser = false;
+  let user;
+  users.forEach((e) => {
+      if (e.email == username && e.password == password) {
+          foundUser = true
+          user = e
+      }
+  })
+
+  if (foundUser) {
     req.session.username = username;
     res.end();
   } else {
