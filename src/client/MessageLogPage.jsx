@@ -22,6 +22,7 @@ export function MessageLogPage({messageApi}) {
     const { username } = userData;
     const findSentMessages = user.filter(e => e.username === username)
     console.log(findSentMessages)
+    const findReceivedMessages = user.filter(e => e.receiver === username)
 
     return (
         <div>
@@ -35,6 +36,13 @@ export function MessageLogPage({messageApi}) {
                 </div>
             ))}
             <h2>Received Messages </h2>
+            {findReceivedMessages.map(({ id, username, message }) => (
+                <div key={id}>
+                    <p>{"Sender: " + username}</p>
+                    <p>{"Message: " + message}</p>
+                    <br/>
+                </div>
+            ))}
         </div>
     )
 }

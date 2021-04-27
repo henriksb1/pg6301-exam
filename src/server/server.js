@@ -49,9 +49,9 @@ app.get("/api/message", (req, res) => {
 });
 
 app.post("/api/message", (req, res) => {
-    const { username, message } = req.body;
+    const { username, receiver, message } = req.body;
     console.log(req.body);
-    messages.push({ username, message, id: messages.length + 1 });
+    messages.push({ username, receiver, message, id: messages.length + 1 });
     console.log(messages)
     res.status(201).end();
 });

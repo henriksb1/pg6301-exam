@@ -6,23 +6,28 @@ import {ErrorView} from "./ErrorView";
 import {LoadingView} from "./LoadingView";
 
 export function SendMessagePage({userApi, messageApi}) {
-    //const [receiver, setReceiver] = useState("");
+    const [receiver, setReceiver] = useState("");
     const [message, setMessage] = useState("");
 
-    const { loading, error, data } = useLoading(() => fetchJson("/api/profile"));
+    const { data: profileData, profileError, profileLoading } = useLoading(() => fetchJson("/api/profile"));
 
-    if (error) {
-        return <ErrorView error={error} />;
+    const { data: user, error, loading, reload } = useLoading(
+        async () => await userApi.listUsers()
+    );
+
+    if (error || profileError) {
+        return <ErrorView error={(error ? error : profileError)} />;
     }
-    if (loading || !data) {
+
+    if (profileLoading || !user) {
         return <LoadingView />;
     }
 
-    const { username } = data;
+    const { username } = profileData;
 
     async function submit(e) {
         e.preventDefault();
-        await messageApi.createMessage({ username, message });
+        await messageApi.createMessage({ username, receiver, message });
     }
 
     return (
@@ -33,6 +38,15 @@ export function SendMessagePage({userApi, messageApi}) {
                 value={message}
                 onValueChange={setMessage}
             />
+            <label>
+                Receiver: {" "}
+                <select onChange={(e) => setReceiver(e.target.value)}>
+                <option/>
+                {user.map(({ id, email }) => (
+                    <option key={id}>{email}</option>
+                ))}
+            </select></label>
+            <br/>
             <button>Submit</button>
         </form>
     );

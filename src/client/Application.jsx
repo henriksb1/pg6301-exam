@@ -20,9 +20,9 @@ export function Application() {
     };
     const messageApi = {
         listMessages: async () => await fetchJson("/api/message"),
-        createMessage: async ({ username, message }) => {
+        createMessage: async ({ username, receiver, message }) => {
             return postJson("/api/message", {
-                username, message
+                username, receiver, message
             });
         },
     };
