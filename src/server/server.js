@@ -42,7 +42,29 @@ const users = [
     }
 ];
 
+const messages = [
+    {
+        id: 1,
+        sender: "user1@user1",
+        receiver: "user2@user2",
+        message: "Hello from the other side."
+    }
+]
+
+app.get("/api/message", (req, res) => {
+    res.json(messages);
+});
+
+app.post("/api/message", (req, res) => {
+    const { sender, receiver, message } = req.body;
+    console.log(req.body);
+    messages.push({ sender, receiver, message, id: users.length + 1 });
+    console.log(messages)
+    res.status(201).end();
+});
+
 app.get("/api/user", (req, res) => {
+    console.log(users)
     res.json(users);
 });
 
