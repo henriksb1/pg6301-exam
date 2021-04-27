@@ -58,3 +58,10 @@ button {
     width: 100px;
 }
 
+.chat {
+    background-color: white;
+}
+
+.chat-content {
+    margin: 20px;
+}
