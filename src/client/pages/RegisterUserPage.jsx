@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useState } from "react";
-import { InputField } from "./InputField";
+import { InputField } from "../components/InputField";
 
 export function RegisterUserPage({ userApi }) {
   const [firstName, setFirstName] = useState("");

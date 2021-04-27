@@ -1,8 +1,8 @@
 import React from "react";
-import {useLoading} from "./useLoading";
-import {ErrorView} from "./ErrorView";
-import {LoadingView} from "./LoadingView";
-import {fetchJson} from "./http";
+import {useLoading} from "../lib/useLoading";
+import {ErrorView} from "../components/ErrorView";
+import {LoadingView} from "../components/LoadingView";
+import {fetchJson} from "../lib/http";
 
 export function MessageLogPage({messageApi}) {
     const { data: user, error, loading, reload } = useLoading(

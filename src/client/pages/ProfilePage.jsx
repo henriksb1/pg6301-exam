@@ -1,8 +1,8 @@
 import React from "react";
-import { ErrorView } from "./ErrorView";
-import { LoadingView } from "./LoadingView";
-import { useLoading } from "./useLoading";
-import { fetchJson } from "./http";
+import { ErrorView } from "../components/ErrorView";
+import { LoadingView } from "../components/LoadingView";
+import { useLoading } from "../lib/useLoading";
+import { fetchJson } from "../lib/http";
 import {RegisterUserPage} from "./RegisterUserPage";
 import {ListUserPage} from "./ListUserPage";
 

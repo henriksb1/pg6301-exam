@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { postJson } from "./http";
+import { postJson } from "../lib/http";
 import { useHistory } from "react-router";
-import { useSubmit } from "./useSubmit";
-import { InputField } from "./InputField";
+import { useSubmit } from "../lib/useSubmit";
+import { InputField } from "../components/InputField";
 
 export function LoginPage() {
   const [username, setUsername] = useState("");

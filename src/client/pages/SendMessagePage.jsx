@@ -1,9 +1,9 @@
 import React, {useState} from "react";
-import {InputField} from "./InputField";
-import {useLoading} from "./useLoading";
-import {fetchJson} from "./http";
-import {ErrorView} from "./ErrorView";
-import {LoadingView} from "./LoadingView";
+import {InputField} from "../components/InputField";
+import {useLoading} from "../lib/useLoading";
+import {fetchJson} from "../lib/http";
+import {ErrorView} from "../components/ErrorView";
+import {LoadingView} from "../components/LoadingView";
 
 export function SendMessagePage({userApi, messageApi}) {
     const [receiver, setReceiver] = useState("");

@@ -1,13 +1,13 @@
 import {BrowserRouter} from "react-router-dom";
 import {Route, Switch} from "react-router";
-import {ProfilePage} from "./ProfilePage";
-import {LoginPage} from "./LoginPage";
-import {FrontPage} from "./FrontPage";
+import {ProfilePage} from "./pages/ProfilePage";
+import {LoginPage} from "./pages/LoginPage";
+import {FrontPage} from "./pages/FrontPage";
 import React from "react";
-import {fetchJson, postJson} from "./http";
-import {Navbar} from "./Navbar";
-import {SendMessagePage} from "./SendMessagePage";
-import {MessageLogPage} from "./MessageLogPage";
+import {fetchJson, postJson} from "./lib/http";
+import {Navbar} from "./components/Navbar";
+import {SendMessagePage} from "./pages/SendMessagePage";
+import {MessageLogPage} from "./pages/MessageLogPage";
 
 export function Application() {
     const userApi = {
