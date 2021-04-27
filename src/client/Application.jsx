@@ -37,26 +37,28 @@ export function Application() {
       <header>
         <Navbar />
       </header>
-      <Switch>
-        <Route path="/profile">
-          <ProfilePage userApi={userApi} />
-        </Route>
-        <Route path="/message">
-          <SendMessagePage userApi={userApi} messageApi={messageApi} />
-        </Route>
-        <Route path="/log">
-          <MessageLogPage messageApi={messageApi} />
-        </Route>
-        <Route path="/login">
-          <LoginPage />
-        </Route>
-        <Route exact path="/">
-          <FrontPage />
-        </Route>
-        <Route>
-          <h1>Not found</h1>
-        </Route>
-      </Switch>
+      <main>
+        <Switch>
+          <Route path="/profile">
+            <ProfilePage userApi={userApi} />
+          </Route>
+          <Route path="/message">
+            <SendMessagePage userApi={userApi} messageApi={messageApi} />
+          </Route>
+          <Route path="/log">
+            <MessageLogPage messageApi={messageApi} />
+          </Route>
+          <Route path="/login">
+            <LoginPage />
+          </Route>
+          <Route exact path="/">
+            <FrontPage />
+          </Route>
+          <Route>
+            <h1>Not found</h1>
+          </Route>
+        </Switch>
+      </main>
     </BrowserRouter>
   );
 }

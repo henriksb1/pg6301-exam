@@ -1,0 +1,40 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: whitesmoke;
+    font-family: Helvetica, sans-serif;
+}
+
+#app {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+header {
+    background-color: darkcyan;
+    height: 40px;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+
+header li {
+    display: inline;
+    margin: 30px;
+}
+
+header li a {
+    color: white;
+    text-decoration: none;
+}
+
+main {
+    display: grid;
+    justify-content: center;
+    margin: 30px;
+}
+
+h1 {
+    text-align: center;
+}

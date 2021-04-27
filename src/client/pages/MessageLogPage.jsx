@@ -33,18 +33,18 @@ export function MessageLogPage({ messageApi }) {
       <h1>Message log</h1>
       <h2>Sent messages</h2>
       {findSentMessages.map(({ id, username, message }) => (
-        <div key={id}>
-          <p>{"Sender: " + username}</p>
-          <p>{"Message: " + message}</p>
-          <br />
+        <div className={"chat"} key={id}>
+          <div className={"chat-content"}>
+            <p>{"Sender: " + username}</p>
+            <p>{"Message: " + message}</p>
+          </div>
         </div>
       ))}
       <h2>Received Messages </h2>
       {findReceivedMessages.map(({ id, username, message }) => (
-        <div key={id}>
+        <div className={"chat"} key={id}>
           <p>{"Sender: " + username}</p>
           <p>{"Message: " + message}</p>
-          <br />
         </div>
       ))}
     </div>
