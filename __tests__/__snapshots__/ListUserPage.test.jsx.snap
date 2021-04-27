@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`list users component should show users on dom 1`] = `"<div><h1>Edit users</h1><li><a href=\\"/user/1/edit\\">Per Borgli (per@borgli)</a></li></div>"`;
