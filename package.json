@@ -1,0 +1,32 @@
+{
+  "name": "pg6301-exam-2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently npm:server npm:client",
+    "client": "parcel src/client/index.html",
+    "server": "nodemon --watch src/server src/server/server.js",
+    "test": "jest --coverage",
+    "format": "prettier --write src"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^6.0.2",
+    "cookie-parser": "^1.4.5",
+    "express-session": "^1.17.1",
+    "nodemon": "^2.0.7",
+    "parcel": "^2.0.0-beta.2",
+    "prettier": "^2.2.1"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0"
+  }
+}
