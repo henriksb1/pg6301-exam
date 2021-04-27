@@ -12,7 +12,7 @@ describe("auth API", () => {
       .get("/api/user")
       .then((response) => {
         expect(response.body.find(({ id }) => id === 1)).toMatchObject({
-          email: "per@borgli",
+          email: "per@mail.com",
         });
       });
   });

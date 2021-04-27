@@ -16,6 +16,14 @@ const userApi = {
   ],
 };
 
+async function renderForTest(child) {
+  const container = document.createElement("div");
+  await act(async () => {
+    await ReactDOM.render(<MemoryRouter>{child}</MemoryRouter>, container);
+  });
+  return container;
+}
+
 describe("list users component", () => {
   it("should show users on dom", async () => {
     const container = document.createElement("div");
@@ -32,6 +40,28 @@ describe("list users component", () => {
     expect(container.innerHTML).toMatchSnapshot();
     expect(container.querySelector("li").textContent).toEqual(
       "Per Borgli (per@borgli)"
+    );
+  });
+
+  it("should show loading screen", async () => {
+    const listUsers = () => new Promise((resolve) => {});
+    const container = await renderForTest(
+      <ListUserPage userApi={{ listUsers }} />
+    );
+    expect(container.innerHTML).toMatchSnapshot();
+    expect(container.querySelector("div").textContent).toEqual("Loading...");
+  });
+
+  it("should show error message", async () => {
+    const listUsers = () => {
+      throw new Error("Failed to load");
+    };
+    const container = await renderForTest(
+      <ListUserPage userApi={{ listUsers }} />
+    );
+    expect(container.innerHTML).toMatchSnapshot();
+    expect(container.querySelector("div").textContent).toEqual(
+      "An error occurred: Error: Failed to load"
     );
   });
 });
