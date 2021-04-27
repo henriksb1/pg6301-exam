@@ -3,6 +3,7 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
+const messageApi = require("./messageApi");
 
 const app = express();
 
@@ -15,6 +16,8 @@ app.use(
 );
 app.use(bodyParser.json());
 app.use(cookieParser());
+
+app.use("/api/message", messageApi);
 
 const users = [
   {
@@ -32,27 +35,6 @@ const users = [
     password: "123",
   },
 ];
-
-const messages = [
-  {
-    id: 1,
-    username: "user1@user1",
-    receiver: "user2@user2",
-    message: "Hello from the other side.",
-  },
-];
-
-app.get("/api/message", (req, res) => {
-  res.json(messages);
-});
-
-app.post("/api/message", (req, res) => {
-  const { username, receiver, message } = req.body;
-  console.log(req.body);
-  messages.push({ username, receiver, message, id: messages.length + 1 });
-  console.log(messages);
-  res.status(201).end();
-});
 
 app.get("/api/user", (req, res) => {
   console.log(users);
