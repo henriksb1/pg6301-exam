@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`create users view renders on real DOM 1`] = `"<form><h1>Create new user</h1><div><label>First Name: <input type=\\"text\\" value=\\"\\"></label></div><div><label>Last Name: <input type=\\"text\\" value=\\"\\"></label></div><div><label>Email Address: <input type=\\"text\\" value=\\"\\"></label></div><div><label>Password: <input type=\\"text\\" value=\\"\\"></label></div><button>Submit</button></form>"`;
+
+exports[`create users view test renders view 1`] = `
+<form
+  onSubmit={[Function]}
+>
+  <h1>
+    Create new user
+  </h1>
+  <div>
+    <label>
+      First Name
+      :
+       
+      <input
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+    </label>
+  </div>
+  <div>
+    <label>
+      Last Name
+      :
+       
+      <input
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+    </label>
+  </div>
+  <div>
+    <label>
+      Email Address
+      :
+       
+      <input
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+    </label>
+  </div>
+  <div>
+    <label>
+      Password
+      :
+       
+      <input
+        onChange={[Function]}
+        type="text"
+        value=""
+      />
+    </label>
+  </div>
+  <button>
+    Submit
+  </button>
+</form>
+`;
