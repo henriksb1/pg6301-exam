@@ -7,6 +7,7 @@ import React from "react";
 import {fetchJson, postJson} from "./http";
 import {Navbar} from "./Navbar";
 import {SendMessagePage} from "./SendMessagePage";
+import {MessageLogPage} from "./MessageLogPage";
 
 export function Application() {
     const userApi = {
@@ -18,9 +19,10 @@ export function Application() {
         },
     };
     const messageApi = {
-        createMessage: async ({ sender, receiver, message }) => {
+        listMessages: async () => await fetchJson("/api/message"),
+        createMessage: async ({ username, message }) => {
             return postJson("/api/message", {
-                sender, receiver, message
+                username, message
             });
         },
     };
@@ -38,7 +40,7 @@ export function Application() {
                 <SendMessagePage userApi={userApi} messageApi={messageApi}/>
             </Route>
             <Route path="/log">
-                <h1>Log</h1>
+                <MessageLogPage messageApi={messageApi}/>
             </Route>
             <Route path="/login">
                 <LoginPage/>

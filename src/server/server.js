@@ -21,31 +21,24 @@ app.use(cookieParser());
 const users = [
     {
         id: 1,
-        firstName: "User1",
-        lastName: "User1",
-        email: "user1@user1",
+        firstName: "Per",
+        lastName: "Borgli",
+        email: "per@borgli",
         password: "123"
     },
     {
         id: 2,
-        firstName: "User2",
-        lastName: "User2",
-        email: "user2@user2",
+        firstName: "Sander",
+        lastName: "Nilsen",
+        email: "sander@nilsen",
         password: "123"
     },
-    {
-        id: 3,
-        firstName: "Admin",
-        lastName: "Admin",
-        email: "admin",
-        password: "admin"
-    }
 ];
 
 const messages = [
     {
         id: 1,
-        sender: "user1@user1",
+        username: "user1@user1",
         receiver: "user2@user2",
         message: "Hello from the other side."
     }
@@ -56,9 +49,9 @@ app.get("/api/message", (req, res) => {
 });
 
 app.post("/api/message", (req, res) => {
-    const { sender, receiver, message } = req.body;
+    const { username, message } = req.body;
     console.log(req.body);
-    messages.push({ sender, receiver, message, id: users.length + 1 });
+    messages.push({ username, message, id: messages.length + 1 });
     console.log(messages)
     res.status(201).end();
 });
