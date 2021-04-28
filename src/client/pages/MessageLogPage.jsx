@@ -30,26 +30,27 @@ export function MessageLogPage({ messageApi }) {
   const findReceivedMessages = user.filter((e) => e.receiver === username);
 
   return (
-    <div>
-      <h1>Message log</h1>
-      <h2>Sent messages</h2>
-      {findSentMessages.map(({ id, username, message }) => (
-        <div className={"chat"} key={id}>
-          <div className={"chat-content"}>
-            <p><strong>From: </strong>{username}</p>
-            <p><strong>Message: </strong>{message}</p>
-          </div>
-        </div>
-      ))}
-      <h2>Received Messages </h2>
-      {findReceivedMessages.map(({ id, username, message }) => (
-        <div className={"chat"} key={id}>
-          <div className={"chat-content"}>
-            <p><strong>From: </strong>{username}</p>
-            <p><strong>Message: </strong>{username}</p>
-          </div>
-        </div>
-      ))}
-    </div>
+      <div>
+        <h1>Message log</h1>
+        <h2>Sent Messages</h2>
+        {findSentMessages.map(({ id, username, receiver, message }) => (
+            <div className={"chat"} key={id}>
+              <div className={"chat-content"}>
+                <p><strong>From: </strong>{username}</p>
+                <p><strong>To: </strong>{receiver}</p>
+                <p><strong>Message: </strong>{message}</p>
+              </div>
+            </div>
+        ))}
+        <h2>Received Messages </h2>
+        {findReceivedMessages.map(({ id, username, message }) => (
+            <div className={"chat"} key={id}>
+              <div className={"chat-content"}>
+                <p><strong>From: </strong>{username}</p>
+                <p><strong>Message: </strong>{message}</p>
+              </div>
+            </div>
+        ))}
+      </div>
   );
 }
