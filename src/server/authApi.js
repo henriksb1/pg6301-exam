@@ -28,15 +28,12 @@ const users = [
 ];
 
 authApi.get("/api/user", (req, res) => {
-  console.log(users);
   res.json(users);
 });
 
 authApi.post("/api/user", (req, res) => {
   const { firstName, lastName, email, password } = req.body;
-  console.log(req.body);
   users.push({ firstName, lastName, email, password, id: users.length + 1 });
-  console.log(users);
   res.status(201).end();
 });
 

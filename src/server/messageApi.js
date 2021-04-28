@@ -16,9 +16,7 @@ messageApi.get("", (req, res) => {
 
 messageApi.post("", (req, res) => {
   const { username, receiver, message } = req.body;
-  console.log(req.body);
   messages.push({ username, receiver, message, id: messages.length + 1 });
-  console.log(messages);
   res.status(201).end();
 });
 
