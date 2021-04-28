@@ -74,8 +74,9 @@ The following code in authApi.js I have **received** from candidate nr. 8104
   }
 ```
 
-## Bugs
-- If you're not logged in and navigating to "Send Messages", it doesn't render. 
+## Bugs / Shortcoming
+- If you're not logged in and navigating to "Send Messages", it doesn't render. I was struggling destructuring the data I received from
+useLoading so it triggers LoadinView for a brief moment. Came up short with the time and had to leave it to focus more on testing.
 
 ## Extra
 * [x] Format with Prettier
